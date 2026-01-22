@@ -9,6 +9,14 @@ window.EXAM_SECTIONS.push({
       q: "1. Specyfikacja wymagań, języki inżynierii oprogramowania.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Wymagania funkcjonalne opisują „co”, niefunkcjonalne „jak dobrze”.</li>
+          <li>Dobra specyfikacja jest jednoznaczna, testowalna i śledzalna.</li>
+          <li>Notacje: UML, BPMN, user stories, use cases.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Specyfikacja wymagań</b> odpowiada na pytania: co system ma robić, dla kogo i w jakich ograniczeniach.</p>
         <ul>
           <li><b>Wymagania funkcjonalne</b>: funkcje/akcje systemu (np. „użytkownik może zresetować hasło”).</li>
@@ -29,11 +37,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Formalne</b>: gdy potrzeba dowodów własności (systemy krytyczne).</li>
         </ul>
         <div class="callout"><b>Na ustnym działa</b>: pokaż 1 wymaganie SMART, np. „95 percentyl czasu odpowiedzi &lt; 200 ms dla /api/search przy 200 RPS”.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Przykład złego wymagania (niemierzalne, niejednoznaczne).</li>
+          <li>Różnica wymaganie vs user story vs use case.</li>
+        </ul>
       `,
     },
     {
       q: "2. Metody formalne, wzorce projektowe.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Metody formalne to matematyczna specyfikacja i weryfikacja własności systemu.</li>
+          <li>Wzorce GoF: kreacyjne, strukturalne, behawioralne.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Metody formalne</b></p>
         <ul>
           <li><b>Cel</b>: matematyczny opis systemu + dowód/automatyczna weryfikacja własności (np. bezpieczeństwo, brak deadlocka, spełnienie reguł).</li>
@@ -47,11 +68,25 @@ window.EXAM_SECTIONS.push({
           <li><b>Pułapka</b>: „pattern mania” — wzorzec ma rozwiązywać problem, nie być celem samym w sobie.</li>
         </ul>
         <div class="callout"><b>Przykład do opowiedzenia</b>: Strategia — wiele algorytmów pod wspólnym interfejsem; zalety: OCP i testowalność.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Kiedy metody formalne są opłacalne, a kiedy zbyt drogie?</li>
+          <li>Przykład wzorca i jego minusy (np. Singleton — testowalność).</li>
+        </ul>
       `,
     },
     {
       q: "3. Testowanie oprogramowania.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Poziomy: unit → integracyjne → systemowe → akceptacyjne; E2E na końcu.</li>
+          <li>Rodzaje: funkcjonalne, regresyjne, wydajnościowe, bezpieczeństwa.</li>
+          <li>Piramida testów i automatyzacja w CI.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Cel</b>: wykryć defekty wcześnie i ograniczyć ryzyko regresji.</p>
         <ul>
           <li><b>Poziomy</b>: unit → integracyjne → systemowe → akceptacyjne; dodatkowo E2E.</li>
@@ -66,11 +101,25 @@ window.EXAM_SECTIONS.push({
           <li><b>Flaky tests</b>: testy niestabilne niszczą zaufanie — trzeba je eliminować.</li>
         </ul>
         <div class="callout"><b>Typowe dopytanie</b>: black-box vs white-box + przykład (np. test API vs test konkretnej gałęzi if w funkcji).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Czym jest „flaky test” i czemu jest groźny?</li>
+          <li>Coverage 100% nie oznacza braku błędów — dlaczego?</li>
+        </ul>
       `,
     },
     {
       q: "4. Ewolucja oprogramowania i refaktoryzacja.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Ewolucja = zmiany wymagań, skali i środowiska.</li>
+          <li>Refaktoryzacja to poprawa struktury bez zmiany zachowania.</li>
+          <li>Dług techniczny rośnie, gdy odkładasz porządkowanie.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Ewolucja</b>: zmiany w czasie przez wymagania, skalę, bezpieczeństwo, zależności i dług technologiczny.</li>
           <li><b>Dług techniczny</b>: „odsetki” płacone przy każdej zmianie, jeśli kod/architektura są zaniedbane.</li>
@@ -84,6 +133,12 @@ window.EXAM_SECTIONS.push({
           <li>przy trudnych testach (brak DI, ukryte zależności).</li>
         </ul>
         <div class="callout"><b>Haczyk</b>: refaktoryzacja ≠ optymalizacja; optymalizujesz dopiero po pomiarach (profilowaniu).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Jak odróżnić refaktoryzację od „przepisywania” (rewrite)?</li>
+          <li>Jak zabezpieczyć refaktor w projekcie bez testów?</li>
+        </ul>
       `,
     },
   ],

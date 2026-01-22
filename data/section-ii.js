@@ -9,6 +9,14 @@ window.EXAM_SECTIONS.push({
       q: "1. Mając dany schemat bazy napisz zapytanie w PL-SQL wydobywające określone informacje.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Jeśli da się — piszę <b>czysty SQL</b>. <b>PL/SQL</b> dodaję, gdy potrzebuję logiki, parametrów, pętli, wyjątków lub zwracania wyniku proceduralnie.</li>
+          <li><b>1 wiersz</b>: <code>SELECT ... INTO ...</code> (+ obsługa wyjątków).</li>
+          <li><b>Wiele wierszy</b>: <code>FOR r IN (SELECT...)</code> albo kursor.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Na ustnym</b> pokaż, że odróżniasz: czysty SQL (SELECT) vs PL/SQL (logika wokół SQL) i umiesz dobrać narzędzie do rodzaju wyniku.</p>
         <ul>
           <li><b>Jeśli wynik = 1 wiersz</b>: użyj <code>SELECT ... INTO ...</code> + obsłuż <code>NO_DATA_FOUND</code> i <code>TOO_MANY_ROWS</code>.</li>
@@ -24,11 +32,26 @@ window.EXAM_SECTIONS.push({
           <li><b>Sortowanie i stronicowanie</b>: ORDER BY, FETCH/LIMIT (zależnie od systemu).</li>
         </ul>
         <div class="callout"><b>Checklist</b>: JOIN/LEFT JOIN, GROUP BY/HAVING, agregaty, ORDER BY, LIMIT/FETCH + wyjątki w PL/SQL.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica <b>WHERE</b> vs <b>HAVING</b>.</li>
+          <li>Co się stanie, gdy <code>SELECT INTO</code> zwróci 0 wierszy lub 2+ wierszy?</li>
+          <li>Kiedy <b>LEFT JOIN</b> jest potrzebny, a kiedy wystarczy INNER JOIN?</li>
+        </ul>
       `,
     },
     {
       q: "2. Jak procedura, wyzwalacz, perspektywa, sekwencja i uprawnienia zapewniają bezpieczny dostęp do danych?",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Użytkownikom daję <b>EXECUTE</b> na procedury, a nie bezpośredni DML na tabelach.</li>
+          <li><b>View</b> ogranicza kolumny/wiersze, <b>trigger</b> daje audyt/walidacje, <b>sequence</b> generuje PK.</li>
+          <li><b>GRANT/ROLE</b>: least privilege.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Cel</b>: ograniczyć bezpośredni dostęp do tabel, egzekwować reguły i mieć audyt.</p>
         <ul>
           <li><b>Procedura/Funkcja</b>: kapsułkuje logikę, waliduje dane, pozwala dać użytkownikowi tylko <code>EXECUTE</code> zamiast DML na tabelach.</li>
@@ -44,11 +67,25 @@ window.EXAM_SECTIONS.push({
           <li>Na zmianach trzymasz <b>audyt</b> (trigger INSERT/UPDATE/DELETE do tabeli logów).</li>
         </ul>
         <div class="callout"><b>Typowe dopytanie</b>: SQL injection i obrona — parametryzacja, whitelisting, ograniczenie dynamicznego SQL, minimalne uprawnienia.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dlaczego trigger bywa problematyczny w utrzymaniu? (ukryta logika, wydajność, debugowanie).</li>
+          <li>Kiedy <code>WITH CHECK OPTION</code> na view ma znaczenie?</li>
+          <li>Dlaczego konto aplikacyjne nie powinno mieć uprawnień DBA?</li>
+        </ul>
       `,
     },
     {
       q: "3. Dla schematu bazy zdefiniuj związki gwarantujące integralność edytowanych danych.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Integralność zapewniam przez <b>PK/FK/UNIQUE/NOT NULL/CHECK</b> oraz sensowne akcje <b>ON DELETE</b>.</li>
+          <li>Dobór <code>RESTRICT</code>/<code>CASCADE</code>/<code>SET NULL</code> zależy od semantyki relacji.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Integralność</b> to gwarancja, że nie da się wprowadzić „bezsensownych” danych (w sensie modelu).</p>
         <ul>
           <li><b>PRIMARY KEY</b>: jednoznaczna identyfikacja wiersza.</li>
@@ -65,11 +102,25 @@ window.EXAM_SECTIONS.push({
           <li><b>SET NULL</b>: gdy relacja jest opcjonalna (np. wpis może nie mieć przypisanego opiekuna).</li>
         </ul>
         <div class="callout"><b>Pułapka</b>: CASCADE jest wygodne, ale może usunąć „za dużo”, jeśli model jest nieprzemyślany.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Integralność encji vs referencyjna vs domen — krótko rozróżnij.</li>
+          <li>Kiedy klucz naturalny, a kiedy sztuczny (ID)?</li>
+          <li>Czy indeks „zapewnia integralność”? (nie; wspiera wydajność i wymuszanie UNIQUE/FK w praktyce).</li>
+        </ul>
       `,
     },
     {
       q: "4. DDL: odwzoruj w modelu relacyjnym podany system rzeczywisty (np. sieć drogową, działki, hierarchię służbową).",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Encje → tabele, relacje → FK, N:M → tabela pośrednia, 1:1 → FK+UNIQUE.</li>
+          <li>Dodaję constraints (PK/FK/UNIQUE/NOT NULL/CHECK) i indeksy pod typowe zapytania.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Najważniejsze</b>: umieć rozpoznać kardynalności (1:1, 1:N, N:M) i przełożyć je na FK/tabele pośrednie.</p>
         <ul>
           <li><b>Krok 1</b>: identyfikuj encje (tabele) i atrybuty (kolumny).</li>
@@ -85,6 +136,13 @@ window.EXAM_SECTIONS.push({
           <li><b>Dziedziczenie</b>: warianty: jedna tabela z typem, albo tabela bazowa + tabele podrzędne (zależnie od wymagań).</li>
         </ul>
         <div class="callout"><b>Przykład myślenia</b>: hierarchia służbowa = tabela PRACOWNIK z FK <code>manager_id</code> do PRACOWNIK(emp_id).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Jak modelować dziedziczenie? (single table vs joined tables vs table-per-type).</li>
+          <li>Jakie indeksy są kluczowe? (FK, kolumny filtrów, UNIQUE).</li>
+          <li>Gdzie kończy się normalizacja, a zaczyna denormalizacja (wydajność)?</li>
+        </ul>
       `,
     },
   ],

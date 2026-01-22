@@ -9,6 +9,14 @@ window.EXAM_SECTIONS.push({
       q: "1. Co to jest system operacyjny, czym zarządza. Klasyfikacje systemów operacyjnych.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>System operacyjny to warstwa pośrednia między sprzętem a aplikacjami: zarządza zasobami i udostępnia usługi.</li>
+          <li>Zarządza CPU, procesami/wątkami, pamięcią, plikami, I/O, siecią i bezpieczeństwem.</li>
+          <li>Klasyfikacje: wsadowe/interakcyjne/RTOS, jedno‑/wielozadaniowe, mono‑/wieloużytkownikowe, monolit/mikrojądro.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Definicja</b>: SO to warstwa pośrednia między sprzętem a aplikacjami — udostępnia usługi, izoluje procesy i zarządza zasobami.</li>
           <li><b>Co zarządza</b>: CPU (planowanie), procesami/wątkami, pamięcią (wirtualna), plikami, I/O, siecią, bezpieczeństwem (użytkownicy, ACL/role).</li>
@@ -22,11 +30,26 @@ window.EXAM_SECTIONS.push({
           <li><b>SMP/wieloprocesorowe</b>, rozproszone.</li>
           <li><b>Monolityczne / mikrojądro / hybrydowe</b>.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica proces vs wątek (pamięć, przełączanie kontekstu).</li>
+          <li>Co daje mikrojądro, a co kosztuje (IPC, narzut)?</li>
+          <li>Co to są wywołania systemowe i po co tryb jądra?</li>
+        </ul>
       `,
     },
     {
       q: "2. Planowanie CPU: funkcja priorytetu. Scharakteryzuj algorytmy planowania.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Planowanie decyduje, który proces dostaje CPU; celem jest czas reakcji, przepustowość i sprawiedliwość.</li>
+          <li>Priorytety mogą być statyczne lub dynamiczne (aging).</li>
+          <li>Klasyczne algorytmy: FCFS, SJF/SRTF, Round Robin, priorytetowe, MLFQ.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Cel</b>: minimalizacja czasu reakcji/oczekiwania, wysoka przepustowość, sprawiedliwość, dotrzymanie deadline.</li>
           <li><b>Priorytet</b>: statyczny lub dynamiczny (np. aging, interaktywność); wpływa na wybór procesu.</li>
@@ -48,6 +71,14 @@ window.EXAM_SECTIONS.push({
     {
       q: "3. Hierarchia pamięci; adres logiczny i fizyczny; fragmentacja; strategie dopasowania.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Hierarchia: rejestry → cache → RAM → dysk (swap).</li>
+          <li>Adres logiczny (wirtualny) tłumaczy MMU na fizyczny.</li>
+          <li>Fragmentacja: wewnętrzna i zewnętrzna; strategie dopasowania: first/next/best/worst‑fit.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Hierarchia</b>: rejestry → cache → RAM → dysk (swap) — kompromis szybkość/pojemność/koszt.</li>
           <li><b>Adres logiczny</b> (wirtualny) generuje CPU w procesie; <b>fizyczny</b> to realny adres RAM.</li>
@@ -62,11 +93,26 @@ window.EXAM_SECTIONS.push({
           <li><b>Algorytmy wymiany</b>: FIFO, LRU (lub Clock jako przybliżenie LRU).</li>
           <li><b>Thrashing</b>: zbyt dużo page faultów, system „mieli dyskiem” — pomaga kontrola working set.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica segmentacja vs stronicowanie.</li>
+          <li>Co robi TLB i dlaczego jest krytyczny dla wydajności.</li>
+          <li>Dlaczego best‑fit bywa gorszy w praktyce (koszt szukania i fragmentacja).</li>
+        </ul>
       `,
     },
     {
       q: "4. Zakleszczenie: wykrywanie, usuwanie, unikanie i zapobieganie.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Deadlock to cykl oczekiwań na zasoby — nic nie rusza.</li>
+          <li>Warunki Coffmana: wykluczanie, hold&wait, brak wywłaszczenia, cykl.</li>
+          <li>Strategie: wykrywanie (graf), unikanie (Bankier), zapobieganie (łamanie warunków), usuwanie (abort/rollback).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Deadlock</b>: procesy czekają cyklicznie na zasoby i żaden nie ruszy.</li>
           <li><b>Warunki Coffmana</b>: mutual exclusion, hold&wait, no preemption, circular wait.</li>
@@ -76,11 +122,25 @@ window.EXAM_SECTIONS.push({
           <li><b>Zapobieganie</b>: łamanie jednego z warunków (np. porządek zasobów).</li>
         </ul>
         <div class="callout"><b>Dobry przykład „porządku zasobów”</b>: zawsze blokuj mutexy w tej samej kolejności (np. rosnące ID), żeby nie powstał cykl.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica „avoidance” (unikanie) vs „prevention” (zapobieganie).</li>
+          <li>Koszt wykrywania — kiedy opłaca się wykrywać, a kiedy zapobiegać?</li>
+        </ul>
       `,
     },
     {
       q: "5. Semafory i zmienne synchronizujące w systemach operacyjnych.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Semafor to licznik z operacjami atomowymi P/V; służy do synchronizacji.</li>
+          <li>Mutex to semafor binarny z „właścicielem”.</li>
+          <li>Inne: condition variable, spinlock, RW‑lock, bariery.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Semafor</b>: licznik + operacje atomowe <code>wait(P)</code> i <code>signal(V)</code>.</li>
           <li><b>Binarny</b> (mutex) vs <b>licznikowy</b> (pula zasobów).</li>
@@ -93,11 +153,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Spinlock</b>: aktywne czekanie — dobre na bardzo krótkie sekcje krytyczne na SMP.</li>
           <li><b>Condition variable</b>: nie jest „pamiętliwa” — sygnał bez czekających może przepaść.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Priority inversion i sposoby łagodzenia (priority inheritance).</li>
+          <li>Spinlock vs mutex — kiedy które?</li>
+        </ul>
       `,
     },
     {
       q: "6. Klasyczne problemy synchronizacji i rozwiązanie wybranego.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Klasyczne: producent–konsument, czytelnicy–pisarze, filozofowie, śpiący fryzjer.</li>
+          <li>Najprostszy przykład: producent–konsument na semaforach <code>empty/full</code> + mutex.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Klasyczne</b>: producent–konsument, czytelnicy–pisarze, pięciu filozofów, śpiący fryzjer.</li>
           <li><b>Producent–konsument</b> (bufor N): semafory <code>empty=N</code>, <code>full=0</code>, mutex <code>m=1</code>.</li>
@@ -111,6 +184,12 @@ window.EXAM_SECTIONS.push({
           <li><b>Śpiący fryzjer</b>: semafor na klientów + mutex na kolejkę i liczbę krzeseł.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: dlaczego przy condvar zawsze sprawdzamy warunek w pętli? — spurious wakeups i wyścigi.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Starvation w czytelnicy–pisarze: jak zapewnić sprawiedliwość?</li>
+          <li>Filozofowie: dlaczego „zawsze bierz lewy, potem prawy” może zablokować?</li>
+        </ul>
       `,
     },
   ],

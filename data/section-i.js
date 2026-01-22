@@ -10,22 +10,31 @@ window.EXAM_SECTIONS.push({
       q: "1. Podstawowe techniki algorytmiczne: dziel i zwyciężaj, zachłanna, programowanie dynamiczne.",
       open: true,
       aHtml: `
-        <p><b>Jak mówić na ustnym</b>: definicja → warunki poprawności → 1 przykład → 1 pułapka → złożoność.</p>
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><b>Dziel i zwyciężaj</b>: dzielę na podproblemy, rozwiązuję rekurencyjnie i scalę; złożoność często z rekurencji T(n)=aT(n/b)+f(n).</li>
+          <li><b>Zachłanna</b>: wybieram lokalnie najlepszy krok; poprawność wymaga dowodu własności zachłannego wyboru.</li>
+          <li><b>DP</b>: zapamiętuję wyniki powtarzających się podproblemów; wykorzystuję optymalną podstrukturę.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
 
         <p><b>Dziel i zwyciężaj (Divide &amp; Conquer)</b></p>
         <ul>
           <li><b>Schemat</b>: podziel → rozwiąż rekurencyjnie → scal.</li>
-          <li><b>Typowe rekurencje</b>: <code>T(n)=aT(n/b)+f(n)</code> (tw. Mastera), np. mergesort: <code>2T(n/2)+O(n)</code> → O(n log n).</li>
+          <li><b>Analiza</b>: rekurencje typu <code>T(n)=aT(n/b)+f(n)</code> (tw. Mastera).</li>
           <li><b>Przykłady</b>: mergesort, quicksort (partycjonowanie), wyszukiwanie binarne, FFT, Karatsuba.</li>
-          <li><b>Plusy/minusy</b>: często świetne złożoności, ale narzut rekurencji i koszty scalania/kopiowania.</li>
+          <li><b>Plusy/minusy</b>: dobre złożoności, ale narzut rekurencji i koszty scalania/kopiowania.</li>
+          <li><b>Typowe pytanie</b>: jak głęboki jest stos rekurencji i czy grozi przepełnienie?</li>
         </ul>
 
         <p><b>Metoda zachłanna (Greedy)</b></p>
         <ul>
           <li><b>Idea</b>: wybieraj lokalnie najlepszą decyzję „tu i teraz”.</li>
-          <li><b>Kiedy działa</b>: gdy można udowodnić <i>własność zachłannego wyboru</i> oraz <i>optymalną podstrukturę</i>.</li>
-          <li><b>Przykłady</b>: Huffman (optymalny kod), Kruskal/Prim (MST), dobór aktywności, Dijkstra (dla wag nieujemnych).</li>
-          <li><b>Pułapka</b>: zachłanne nie zawsze daje optimum (np. plecak 0/1, najkrótsza ścieżka z ujemnymi wagami).</li>
+          <li><b>Kiedy działa</b>: gdy da się udowodnić <i>własność zachłannego wyboru</i> i <i>optymalną podstrukturę</i>.</li>
+          <li><b>Przykłady</b>: Huffman, Kruskal/Prim (MST), dobór aktywności, Dijkstra (dla wag nieujemnych).</li>
+          <li><b>Pułapka</b>: zachłanne nie zawsze daje optimum (np. plecak 0/1, ujemne wagi w Dijkstrze).</li>
+          <li><b>Dowód poprawności</b>: zwykle przez wymianę (exchange argument) lub przez pokazanie, że pierwszy wybór należy do pewnego optimum.</li>
         </ul>
 
         <p><b>Programowanie dynamiczne (DP)</b></p>
@@ -35,15 +44,31 @@ window.EXAM_SECTIONS.push({
           <li><b>Przepis</b>: zdefiniuj stan → przejścia → baza → kolejność liczenia → odpowiedź; złożoność = liczba stanów × koszt przejścia.</li>
           <li><b>Przykłady</b>: plecak 0/1, edit distance, LIS, Floyd–Warshall, DP na drzewach.</li>
           <li><b>Optymalizacje</b>: kompresja pamięci (rolling array), bitset, optymalizacje kolejkowe.</li>
+          <li><b>Memo vs tabulacja</b>: memo = rekurencja z cache; tabulacja = iteracja od baz do odpowiedzi.</li>
         </ul>
 
         <div class="callout"><b>Typowe dopytanie</b>: DP vs D&amp;C — w DP te same podproblemy wracają, więc cache’ujesz; w D&amp;C zwykle podproblemy są rozłączne.</div>
+
+        <p><b>Pułapki / dopytania egzaminatora</b></p>
+        <ul>
+          <li>Podaj przykład, gdzie zachłanne <b>nie</b> działa (plecak 0/1) i czemu DP działa.</li>
+          <li>Jak policzyć złożoność D&amp;C? (rekurencja + tw. Mastera).</li>
+          <li>W DP: jak dobrać stan i przejścia, żeby nie wyszło niepotrzebnie O(n³)?</li>
+          <li>Różnica między „najkrótszą ścieżką” a „najlżejszą” przy różnych wagach.</li>
+        </ul>
       `,
     },
     {
       q: "2. Sortowania: przez wstawianie, wybór, bąbelkowe, mergesort, heapsort, quicksort; złożoność.",
       aHtml: `
-        <p><b>Co warto powiedzieć</b>: idea algorytmu + (best/avg/worst) + pamięć + stabilność + kiedy ma sens.</p>
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><b>O(n²)</b>: insertion (best O(n) dla prawie posortowanych), selection (zawsze O(n²)), bubble (głównie dydaktyczne).</li>
+          <li><b>O(n log n)</b>: mergesort (zawsze, stabilny, zwykle O(n) pamięci), heapsort (zawsze, O(1) pamięci, niestabilny), quicksort (średnio O(n log n), worst O(n²)).</li>
+          <li><b>Haczyk</b>: sortowania porównaniowe mają dolne ograniczenie Ω(n log n).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Insertion sort</b>: wstawia kolejny element w już posortowany prefiks.
             <ul>
@@ -78,15 +103,32 @@ window.EXAM_SECTIONS.push({
             <ul>
               <li>Średnio O(n log n), pesymistycznie O(n²); pamięć zwykle O(log n) na stos.</li>
               <li>Jak ograniczyć worst-case: losowy pivot, median-of-three, introsort.</li>
+              <li>Dobór pivota wpływa na praktyczną wydajność i ryzyko O(n²).</li>
             </ul>
           </li>
         </ul>
         <div class="callout"><b>Haczyk</b>: dolne ograniczenie dla sortowań porównaniowych to Ω(n log n). O(n) uzyskasz tylko przy dodatkowych założeniach (counting/radix/bucket).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Co to jest <b>stabilność</b> sortowania i kiedy jest ważna (np. sort po wielu kluczach)?</li>
+          <li>Jak quicksort broni się przed worst-case? (losowy pivot / median-of-three / introsort).</li>
+          <li>Dlaczego heapsort bywa wolniejszy w praktyce? (słabsza lokalność pamięci).</li>
+          <li>Które sortowanie wybrać dla danych prawie posortowanych? (insertion/timsort).</li>
+        </ul>
       `,
     },
     {
       q: "3. Podstawowe algorytmy grafowe: najkrótsze ścieżki oraz przeszukiwania grafów.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><b>BFS</b> i <b>DFS</b> działają w O(V+E) (dla list sąsiedztwa).</li>
+          <li><b>BFS</b> daje najkrótszą liczbę krawędzi w grafie nieważonym.</li>
+          <li><b>Dijkstra</b> dla wag ≥ 0, <b>Bellman–Ford</b> dla ujemnych wag (i wykrywa ujemne cykle), <b>Floyd–Warshall</b> dla wszystkich par (O(V³)).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Przeszukiwania</b></p>
         <ul>
           <li><b>BFS</b> (Breadth-First Search):
@@ -128,11 +170,26 @@ window.EXAM_SECTIONS.push({
           </li>
         </ul>
         <div class="callout"><b>Typowe dopytanie</b>: lista sąsiedztwa vs macierz — lista O(V+E) (graf rzadki), macierz O(V²) (graf gęsty / szybkie sprawdzanie krawędzi).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dijkstra z ujemnymi wagami — dlaczego jest błędny?</li>
+          <li>Kiedy opłaca się Floyd–Warshall zamiast wielu Dijkstr? (małe/gęste grafy).</li>
+          <li>DFS: do czego służą czasy wejścia/wyjścia i krawędzie wsteczne?</li>
+          <li>Jak odtworzyć ścieżkę po obliczeniu dystansów? (tablica poprzedników).</li>
+        </ul>
       `,
     },
     {
       q: "4. Algorytmy tekstowe: KMP oraz Karp–Rabin.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><b>KMP</b>: preprocesuje wzorzec (LPS) i nie cofa się w tekście; złożoność O(n+m).</li>
+          <li><b>Karp–Rabin</b>: rolling hash porównuje okna; szybki średnio, ale możliwe kolizje → weryfikacja znakami.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <p><b>Cel wspólny</b>: znaleźć wszystkie wystąpienia wzorca P (długość m) w tekście T (długość n).</p>
 
         <p><b>KMP (Knuth–Morris–Pratt)</b></p>
@@ -152,6 +209,14 @@ window.EXAM_SECTIONS.push({
         </ul>
 
         <div class="callout"><b>Porównanie</b>: KMP = deterministyczne O(n+m). Karp–Rabin = „probabilistycznie” szybki (zależy od hasha), świetny w praktyce przy dobrym doborze mod/base.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>KMP: pokaż na przykładzie, jak liczy się LPS dla krótkiego wzorca.</li>
+          <li>Karp–Rabin: co to jest kolizja i czemu robimy weryfikację znak po znaku?</li>
+          <li>Gdzie Karp–Rabin jest szczególnie dobry? (wiele dopasowań, duże teksty, podobieństwa).</li>
+          <li>Jak dobrać podstawę/moduł hasha, aby zmniejszyć kolizje?</li>
+        </ul>
       `,
     },
   ],

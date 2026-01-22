@@ -9,6 +9,13 @@ window.EXAM_SECTIONS.push({
       q: "1. Podstawowe rejestry procesora rodziny x86.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>GPR (RAX/RBX...), wskaźniki (RSP/RBP), IP (RIP) i FLAGS.</li>
+          <li>Segmentowe historycznie, FS/GS często do TLS.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>GPR</b>: EAX/EBX/ECX/EDX (32-bit) lub RAX/RBX/... (64-bit).</li>
           <li><b>Wskaźniki</b>: ESP/RSP (stack pointer), EBP/RBP (base/frame), ESI/EDI (source/dest).</li>
@@ -26,6 +33,12 @@ window.EXAM_SECTIONS.push({
     {
       q: "2. Podstawowe instrukcje procesora rodziny x86.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>MOV/LEA/PUSH/POP do danych, ADD/SUB/IMUL do arytmetyki, JMP/CALL/RET do sterowania.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Ruch danych</b>: MOV, LEA, PUSH/POP.</li>
           <li><b>Arytmetyka</b>: ADD, SUB, IMUL, IDIV.</li>
@@ -39,11 +52,24 @@ window.EXAM_SECTIONS.push({
           <li><b>CMP</b> ustawia flagi jak po odejmowaniu, ale nie zapisuje wyniku.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: co robi CMP vs TEST? — oba ustawiają flagi, ale CMP to odejmowanie, TEST to AND.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Rola flag w skokach warunkowych.</li>
+          <li>Dlaczego LEA bywa szybsze do obliczeń?</li>
+        </ul>
       `,
     },
     {
       q: "3. Koprocesor arytmetyczny: architektura, podstawowe instrukcje.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>x87 to stos rejestrów ST(0..7) do operacji zmiennoprzecinkowych.</li>
+          <li>Dziś zastąpione przez SSE/AVX.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>x87 FPU</b>: stos rejestrów ST(0)..ST(7) dla liczb zmiennoprzecinkowych.</li>
           <li><b>Instrukcje</b>: FLD/FSTP, FADD/FSUB/FMUL/FDIV, FSQRT.</li>
@@ -59,6 +85,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "4. Zastosowanie asemblera, zapis asemblerowy.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Assembler używa się w embedded, sterownikach i przy krytycznych optymalizacjach.</li>
+          <li>Ważne są konwencje ABI i składnia (Intel/AT&T).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Zastosowania</b>: embedded/sterowniki, krytyczne optymalizacje, reverse engineering, instrukcje specjalne.</li>
           <li><b>ABI</b>: konwencje wywołań (przekazywanie parametrów, kto czyści stos) — ważne przy łączeniu z C/C++.</li>

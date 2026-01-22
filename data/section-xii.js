@@ -9,6 +9,14 @@ window.EXAM_SECTIONS.push({
       q: "1. Wzorce projektowe: definicja, klasyfikacja. Omów jeden wybrany wzorzec.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Wzorzec to sprawdzone rozwiązanie problemu projektowego (nie gotowy kod).</li>
+          <li>GoF: kreacyjne, strukturalne, behawioralne.</li>
+          <li>Przykład: Factory Method — ukrywa tworzenie obiektów.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Wzorzec</b>: sprawdzone, opisane rozwiązanie typowego problemu projektowego (nie gotowy kod, tylko szablon).</li>
           <li><b>Klasyfikacja GoF</b>: kreacyjne, strukturalne, behawioralne.</li>
@@ -23,11 +31,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Przykład użycia</b>: 1 zdanie z realnego świata (np. parsery, sterowniki, różne implementacje repozytorium).</li>
         </ul>
         <div class="callout"><b>Tip na ustny</b>: powiedz „kiedy użyć” + „plus/minus” — to zwykle wystarcza.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Przykład wzorca i jego wada (np. Singleton — testy).</li>
+          <li>Wzorzec ≠ framework; to „nazwa” dla rozwiązania.</li>
+        </ul>
       `,
     },
     {
       q: "2. Kontenery sekwencyjne, skojarzeniowe, haszujące. Przykłady kosztów O operacji.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>vector: szybki dostęp O(1), insert w środku O(n).</li>
+          <li>map/set: O(log n); unordered_map: średnio O(1).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Sekwencyjne</b> (vector/list/deque):</li>
           <li class="muted"><b>vector</b>: dostęp indeks O(1), push_back amort. O(1), insert/erase w środku O(n).</li>
@@ -43,11 +64,24 @@ window.EXAM_SECTIONS.push({
           <li><b>unordered_map</b>: gdy liczy się średnie O(1) i nie potrzebujesz sortowania po kluczu.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: kiedy unordered_map jest gorsze od map? — gdy potrzebujesz porządku lub masz atak kolizyjny / słaby hash.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dlaczego list jest rzadko wybierany mimo O(1) wstawek?</li>
+          <li>Wpływ rehash w unordered_map na wydajność.</li>
+        </ul>
       `,
     },
     {
       q: "3. Zasada działania VCS. Centralny vs rozproszony. Zalety Git.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>VCS śledzi historię i umożliwia branch/merge.</li>
+          <li>Centralny: jedno repo; rozproszony: każdy ma pełną historię (Git).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>VCS</b>: śledzi historię zmian, umożliwia branch/merge, powrót do wersji, współpracę.</li>
           <li><b>Centralny</b> (np. SVN): jedno repo na serwerze; praca mocniej zależna od dostępu do serwera.</li>
@@ -60,11 +94,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Branch</b>: wskaźnik na commit (tani i szybki).</li>
           <li><b>Merge vs rebase</b>: scalanie historii vs „przepisanie” historii lokalnie.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica merge vs rebase (i kiedy czego użyć).</li>
+          <li>Dlaczego Git jest szybki? (operacje lokalne).</li>
+        </ul>
       `,
     },
     {
       q: "4. Relacje: asocjacja, agregacja, dziedziczenie. Diagramy UML.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Asocjacja = relacja, agregacja = część–całość, kompozycja = silna część–całość, dziedziczenie = „is‑a”.</li>
+          <li>W UML pokazujesz krotności i kierunek relacji.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Asocjacja</b>: „zna/korzysta z” — zwykła relacja między klasami.</li>
           <li><b>Agregacja</b>: część–całość, ale część może istnieć niezależnie (pusty romb).</li>
@@ -78,6 +125,12 @@ window.EXAM_SECTIONS.push({
           <li>dziedziczenie vs kompozycja: kiedy lepiej „has-a” niż „is-a”?</li>
         </ul>
         <div class="callout"><b>Tip</b>: na egzaminie często wystarczy prosty przykład: Firma —(kompozycja)→ Działy; Pracownik —(asocjacja)→ Projekt.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Kiedy lepsza kompozycja niż dziedziczenie?</li>
+          <li>Jak oznaczyć krotności w UML?</li>
+        </ul>
       `,
     },
   ],

@@ -9,6 +9,14 @@ window.EXAM_SECTIONS.push({
       q: "1. Co to jest POSIX oraz Pthreads. Jak tworzy się wątek, mutex, zmienne warunkowe.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>POSIX to standard API; Pthreads to standard wątków w systemach Unix‑like.</li>
+          <li>Wątek tworzysz <code>pthread_create</code>, kończysz/łączysz przez <code>pthread_join</code>.</li>
+          <li>Mutex chroni sekcję krytyczną, condvar służy do czekania na warunek.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>POSIX</b>: standard interfejsów API dla systemów Unix‑like (pliki, procesy, sygnały, wątki).</li>
           <li><b>Pthreads</b>: standard biblioteki wątków POSIX.</li>
@@ -24,11 +32,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Lost wakeup</b>: sygnał bez odpowiedniego protokołu (mutex + warunek) może „przepaść”.</li>
         </ul>
         <div class="callout"><b>Haczyk</b>: condvar zawsze z mutexem i zawsze sprawdzaj warunek w pętli (spurious wakeup).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Co to jest sekcja krytyczna i jak ją minimalizować?</li>
+          <li>Czym jest deadlock i jak go uniknąć w Pthreads?</li>
+        </ul>
       `,
     },
     {
       q: "2. OpenMP: tworzenie bloku zrównoleglonego; równoleglenie pętli for; klauzula redukcji.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><code>#pragma omp parallel</code> tworzy zespół wątków, <code>parallel for</code> dzieli iteracje pętli.</li>
+          <li>Redukcja łączy wyniki wątków bez race condition.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Blok równoległy</b>: dyrektywa <code>#pragma omp parallel</code> tworzy zespół wątków.</li>
           <li><b>Pętla for</b>: <code>#pragma omp parallel for</code> dzieli iteracje między wątki.</li>
@@ -42,11 +63,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Race condition</b>: jeśli nie redukcja, to atomic/critical lub inna strategia.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: dlaczego redukcja na float może dawać inny wynik? — inna kolejność sumowania (błędy zaokrągleń).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica shared vs private i skąd biorą się race conditions.</li>
+          <li>Wpływ schedule na balans obciążenia.</li>
+        </ul>
       `,
     },
     {
       q: "3. Sekcje i zadania w OpenMP.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Sections — kilka niezależnych bloków wykonywanych równolegle.</li>
+          <li>Tasks — dynamiczne zadania, dobre dla rekurencji i nierównych podproblemów.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Sections</b>: równoległe wykonanie kilku niezależnych fragmentów kodu (każdy w innej sekcji).</li>
           <li><b>Tasks</b>: dynamicznie tworzone zadania (dobre dla rekurencji i nierównych podproblemów).</li>
@@ -57,11 +91,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Sections</b>: kilka „dużych” niezależnych bloków o podobnym koszcie.</li>
           <li><b>Tasks</b>: drzewo zadań (np. rekurencja), nierówny koszt, dynamiczne tworzenie pracy.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Taski wymagają synchronizacji (taskwait) — kiedy ją wstawić?</li>
+          <li>Sections są statyczne — co jeśli bloki mają różny koszt?</li>
+        </ul>
       `,
     },
     {
       q: "4. Co to jest MPI — scharakteryzuj, podaj przykłady.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>MPI to standard komunikacji między procesami w obliczeniach rozproszonych.</li>
+          <li>Podstawy: send/recv i kolektywy (broadcast, reduce).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>MPI</b> (Message Passing Interface): standard komunikacji między procesami w obliczeniach równoległych/rozproszonych (często klastry).</li>
           <li><b>Model</b>: wiele procesów; komunikaty punkt‑punkt (send/recv) i operacje kolektywne.</li>
@@ -75,6 +122,12 @@ window.EXAM_SECTIONS.push({
           <li><b>Blokujące vs nieblokujące</b>: <code>MPI_Send/MPI_Recv</code> vs <code>MPI_Isend/MPI_Irecv</code> + <code>MPI_Wait</code>.</li>
         </ul>
         <div class="callout"><b>Pułapka</b>: deadlock w komunikacji blokującej (np. dwa procesy czekają na recv) — rozwiązanie: porządek komunikacji lub non-blocking.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica komunikacji blokującej i nieblokującej.</li>
+          <li>Co to jest komunikator i rank?</li>
+        </ul>
       `,
     },
   ],

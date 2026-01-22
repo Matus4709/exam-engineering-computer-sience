@@ -9,6 +9,13 @@ window.EXAM_SECTIONS.push({
       q: "1. Interpolacja Lagrange'a — istnienie i jedyność rozwiązania.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Dla n+1 różnych węzłów istnieje dokładnie jeden wielomian stopnia ≤ n przechodzący przez punkty.</li>
+          <li>Postać Lagrange’a daje konstrukcję tego wielomianu.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Twierdzenie</b>: dla n+1 różnych węzłów x0..xn istnieje dokładnie jeden wielomian stopnia ≤ n taki, że p(xi)=yi.</li>
           <li><b>Postać Lagrange'a</b>: p(x)=Σ yi·ℓi(x), gdzie ℓi(x)=Π_{j≠i} (x-xj)/(xi-xj).</li>
@@ -21,11 +28,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Błąd interpolacji</b>: proporcjonalny do (n+1)-tej pochodnej i iloczynu (x-xi).</li>
           <li><b>W praktyce</b>: dla wielu punktów często lepsza jest interpolacja sklejanymi (splajny) niż wielomian wysokiego stopnia.</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dlaczego wielomian jest jedyny? (argument o różnicy).</li>
+          <li>Dlaczego nie zawsze opłaca się zwiększać stopień wielomianu?</li>
+        </ul>
       `,
     },
     {
       q: "2. Aproksymacja – znajdowanie rozwiązania zadania aproksymacji w przestrzeniach unitarnych.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Szukamy g w podprzestrzeni V minimalizującego ||f−g||.</li>
+          <li>Rozwiązanie to rzut ortogonalny, a reszta jest prostopadła do V.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Cel</b>: znaleźć g w podprzestrzeni V minimalizujące ||f-g||.</li>
           <li><b>Rozwiązanie</b>: rzut ortogonalny g=P_V(f).</li>
@@ -37,11 +57,25 @@ window.EXAM_SECTIONS.push({
           <li>Minimalizujesz sumę kwadratów błędów: Σ (yi - g(xi))².</li>
           <li>W ujęciu liniowym: g to kombinacja baz (np. 1, x, x²...), a warunek prostopadłości daje układ równań (równania normalne / QR).</li>
         </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dlaczego rzut ortogonalny minimalizuje błąd?</li>
+          <li>Różnica interpolacja vs aproksymacja (dokładność vs najlepsze przybliżenie).</li>
+        </ul>
       `,
     },
     {
       q: "3. Podstawowe metody znajdowania miejsc zerowych równań nieliniowych.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Bisekcja jest pewna, ale wolna.</li>
+          <li>Newton jest szybki, ale wymaga pochodnej i dobrego startu.</li>
+          <li>Siecznych nie wymaga pochodnej, iteracja prosta wymaga |g'|&lt;1.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Bisekcja</b>: wymaga zmiany znaku na [a,b]; pewna zbieżność, wolna.</li>
           <li><b>Newton</b>: x_{k+1}=x_k - f(x_k)/f'(x_k); szybka (kwadratowa) blisko zera, ale wymaga pochodnej i dobrego startu.</li>
@@ -54,11 +88,24 @@ window.EXAM_SECTIONS.push({
           <li><b>Bisekcja</b>: wolna, ale niezawodna — dobra jako metoda startowa.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: kryteria stopu (|x_{k+1}-x_k|, |f(x_k)|) i rząd zbieżności.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Newton może nie zbiegać — kiedy i dlaczego?</li>
+          <li>Jak dobrać punkt startowy i kryterium stopu?</li>
+        </ul>
       `,
     },
     {
       q: "4. Podstawowe metody rozwiązywania równań liniowych – faktoryzacje macierzy.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>LU do ogólnych macierzy (z pivotingiem), Cholesky dla SPD, QR dla stabilności.</li>
+          <li>Dla rzadkich i dużych macierzy często używa się metod iteracyjnych.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>LU</b>: A=LU (często z pivotingiem); szybkie dla wielu prawych stron.</li>
           <li><b>Cholesky</b>: A=LLᵀ dla macierzy symetrycznych dodatnio określonych (SPD); wydajniejsza niż LU.</li>
@@ -69,6 +116,12 @@ window.EXAM_SECTIONS.push({
         <ul>
           <li><b>Pivoting</b>: po co? — stabilność numeryczna (uniknięcie dzielenia przez małe liczby).</li>
           <li><b>Rzadkość</b>: dla macierzy rzadkich preferuje się metody iteracyjne i odpowiednie przechowywanie (CSR/CSC).</li>
+        </ul>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Dlaczego pivoting jest potrzebny w LU?</li>
+          <li>Kiedy preferujesz QR zamiast LU?</li>
         </ul>
       `,
     },

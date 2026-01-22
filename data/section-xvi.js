@@ -9,6 +9,13 @@ window.EXAM_SECTIONS.push({
       q: "1) Różnice między architekturą Princeton (von Neumanna) a Harwardzką.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Princeton: wspólna pamięć instrukcji i danych; prostsza, ale wąskie gardło.</li>
+          <li>Harvard: osobne pamięci/magistrale; równoległy dostęp.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Princeton (von Neumann)</b>: wspólna pamięć i magistrala dla danych oraz instrukcji — prostsza, ale wąskie gardło magistrali.</li>
           <li><b>Harvard</b>: osobne pamięci/magistrale dla danych i instrukcji — możliwy równoległy dostęp, częste w MCU/DSP.</li>
@@ -24,6 +31,12 @@ window.EXAM_SECTIONS.push({
     {
       q: "2) Wymień i opisz przeznaczenie min. 4 rodzaje rejestrów widzianych przez programistę.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>GPR, PC/IP, SP, FLAGS; ewentualnie segmentowe/wektorowe.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>GPR</b>: rejestry ogólnego przeznaczenia (operacje arytmetyczne, adresowanie).</li>
           <li><b>PC/IP</b>: licznik rozkazów (adres następnej instrukcji).</li>
@@ -37,6 +50,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "3) Architektura RISC i CISC.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>RISC: proste instrukcje, load/store, lepsze potokowanie.</li>
+          <li>CISC: bogatsze instrukcje, często mikroprogramowanie.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>RISC</b>: prostsze instrukcje, często stała długość, model load/store; łatwiejsze potokowanie.</li>
           <li><b>CISC</b>: bogatszy zestaw instrukcji, zmienna długość, często mikroprogramowanie.</li>
@@ -52,6 +72,12 @@ window.EXAM_SECTIONS.push({
     {
       q: "4) Składowe magistrali systemowej i ich rola.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Adresowa niesie adresy, danych przenosi dane, sterująca steruje cyklem odczyt/zapis.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Magistrala adresowa</b>: niesie adres komórki pamięci/urządzenia.</li>
           <li><b>Magistrala danych</b>: przenosi dane.</li>

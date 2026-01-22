@@ -9,6 +9,13 @@ window.EXAM_SECTIONS.push({
       q: "1. Model ISO/OSI: warstwy i funkcje.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>OSI ma 7 warstw od fizycznej do aplikacji; każda odpowiada za inny poziom komunikacji.</li>
+          <li>W praktyce często używa się modelu TCP/IP (mniej warstw).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>1 Fizyczna</b>: sygnał/bity/medium.</li>
           <li><b>2 Łącza danych</b>: ramki, MAC, dostęp do medium, VLAN, wykrywanie błędów lokalnie.</li>
@@ -22,11 +29,24 @@ window.EXAM_SECTIONS.push({
           <li>Warstwy 5–7 OSI często „sklejają się” w warstwę aplikacji TCP/IP.</li>
         </ul>
         <div class="callout"><b>Haczyk</b>: OSI jest modelem; w praktyce często mówi się TCP/IP (mniej warstw).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Przykłady protokołów na każdej warstwie.</li>
+          <li>Różnica TCP vs UDP (transport).</li>
+        </ul>
       `,
     },
     {
       q: "2. Podstawowe urządzenia sieciowe i ich rola.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Switch działa na warstwie 2, router na warstwie 3, firewall filtruje ruch.</li>
+          <li>AP łączy Wi‑Fi z LAN.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Switch</b>: warstwa 2, przełączanie po MAC.</li>
           <li><b>Router</b>: warstwa 3, routing po IP.</li>
@@ -45,6 +65,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "3. Routing statyczny i dynamiczny w LAN; protokoły routingu.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Statyczny: ręczne trasy; dynamiczny: automatyczna wymiana informacji.</li>
+          <li>Protokoły: RIP (distance vector), OSPF/IS‑IS (link state), BGP (między AS).</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Statyczny</b>: trasy wpisane ręcznie; prosty, brak adaptacji.</li>
           <li><b>Dynamiczny</b>: automatyczne wyznaczanie tras, odporność na awarie.</li>
@@ -57,11 +84,24 @@ window.EXAM_SECTIONS.push({
           <li><b>BGP</b>: routing polityk między AS (Internet), nie „najkrótsza ścieżka” w sensie wag.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: metryka i zbieżność (convergence) — czemu ma znaczenie.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica link state vs distance vector.</li>
+          <li>Dlaczego BGP to routing polityk, a nie najkrótszej ścieżki?</li>
+        </ul>
       `,
     },
     {
       q: "4. Adresacja warstwy sieciowej; metody uzyskiwania adresu IP.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Adres IP + maska/prefix + brama; IPv4 i IPv6.</li>
+          <li>Adres można dostać statycznie, przez DHCP (IPv4) lub SLAAC/DHCPv6.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>IPv4/IPv6</b>: adres + maska/prefix + brama domyślna.</li>
           <li><b>Uzyskanie IP</b>: statycznie, DHCP (IPv4), SLAAC/DHCPv6 (IPv6).</li>
@@ -78,6 +118,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "5. Technologia ethernet.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Ethernet to standard warstwy 2: ramki, MAC, MTU.</li>
+          <li>Współcześnie full‑duplex na switchach; historycznie CSMA/CD.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Ethernet</b>: ramki, adresy MAC, MTU; dziś najczęściej full-duplex na switchach.</li>
           <li><b>CSMA/CD</b>: historycznie dla half-duplex (huby).</li>
@@ -94,6 +141,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "6. Sieci rozległe (WAN): technologie i protokoły.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>WAN: MPLS, łącza dzierżawione, LTE/5G, światłowód operatora.</li>
+          <li>VPN: IPsec lub TLS; routing między AS: BGP.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Technologie</b>: MPLS, łącza dzierżawione, LTE/5G, światłowód operatorski.</li>
           <li><b>VPN</b>: IPsec, SSL/TLS VPN.</li>

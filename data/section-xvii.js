@@ -9,6 +9,13 @@ window.EXAM_SECTIONS.push({
       q: "1. Koncepcja wzorca MVC.",
       open: true,
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>MVC dzieli aplikację na Model, View i Controller.</li>
+          <li>Kontroler obsługuje żądanie, model dostarcza dane, view renderuje UI.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Model</b>: dane + logika domenowa.</li>
           <li><b>View</b>: warstwa prezentacji (UI).</li>
@@ -25,6 +32,13 @@ window.EXAM_SECTIONS.push({
     {
       q: "2. Autoryzacja oparta na rolach (RBAC) – użycie w .NET Core.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>RBAC: dostęp zależy od roli; w ASP.NET Core używasz <code>[Authorize(Roles=...)]</code>.</li>
+          <li>Role zwykle pochodzą z Identity/claims.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>RBAC</b>: dostęp do zasobu zależy od roli użytkownika (Admin, User, Manager...).</li>
           <li><b>ASP.NET Core</b>: atrybut <code>[Authorize(Roles = &quot;Admin&quot;)]</code> lub polityki (AddAuthorization + RequireRole/RequireClaim).</li>
@@ -37,11 +51,24 @@ window.EXAM_SECTIONS.push({
           <li><b>W praktyce</b>: często łączysz role z kontrolą dostępu do „własnych zasobów” (resource-based authorization).</li>
         </ul>
         <div class="callout"><b>Haczyk</b>: role są proste, ale polityki/claims dają większą elastyczność (np. „może edytować tylko swoje dane”).</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Różnica authentication vs authorization.</li>
+          <li>Kiedy lepsze policy/claims niż role?</li>
+        </ul>
       `,
     },
     {
       q: "3. Użycie instrukcji using, namespace w .NET Core.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li><code>namespace</code> grupuje typy, <code>using</code> importuje przestrzeń nazw.</li>
+          <li><code>using</code> jako instrukcja zwalnia zasoby <code>IDisposable</code>.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>namespace</b>: grupuje typy i unika konfliktów nazw.</li>
           <li><b>using (dyrektywa)</b>: import przestrzeni nazw, np. <code>using System;</code>.</li>
@@ -57,6 +84,12 @@ window.EXAM_SECTIONS.push({
     {
       q: "4. Składnia Razor dla ASP.NET Core.",
       aHtml: `
+        <p><b>Odpowiedź krótka (20–30 s)</b></p>
+        <ul>
+          <li>Razor miesza HTML i C# przez <code>@</code>; używasz konstrukcji if/foreach i tag helpers.</li>
+        </ul>
+
+        <p><b>Rozwinięcie (2–3 min)</b></p>
         <ul>
           <li><b>Razor</b>: miesza HTML i C#; <code>@</code> przełącza w tryb kodu.</li>
           <li><b>Konstrukcje</b>: <code>@Model.Prop</code>, <code>@if (...) { }</code>, <code>@foreach (...) { }</code>, <code>@{ var x = ...; }</code>.</li>
@@ -69,6 +102,12 @@ window.EXAM_SECTIONS.push({
           <li><b>Walidacja</b>: DataAnnotations + wyświetlanie błędów w widoku.</li>
         </ul>
         <div class="callout"><b>Dopytanie</b>: Model Binding + walidacja (DataAnnotations) i jak błędy trafiają do widoku.</div>
+
+        <p><b>Pułapki / dopytania</b></p>
+        <ul>
+          <li>Jak działa Model Binding i walidacja?</li>
+          <li>Różnica View vs Partial vs Layout.</li>
+        </ul>
       `,
     },
   ],
