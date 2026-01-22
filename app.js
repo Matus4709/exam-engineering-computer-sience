@@ -39,13 +39,14 @@
   function buildSection(section) {
     const sid = section.id || slugify(section.title);
     const qaCount = section.qas?.length ?? 0;
-    const sectionEl = document.createElement("section");
+    const sectionEl = document.createElement("details");
     sectionEl.className = "section";
     sectionEl.id = sid;
     sectionEl.dataset.sectionTitle = section.title;
+    sectionEl.open = false;
 
     sectionEl.innerHTML = `
-      <div class="section__head">
+      <summary class="section__head">
         <h2 class="section__title">
           <span>${escapeHtml(section.title)}</span>
           <span class="section__badge">${qaCount} pytań</span>
@@ -55,7 +56,7 @@
             ? `<div>${section.tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>`
             : ""
         }
-      </div>
+      </summary>
       <div class="section__body"></div>
     `;
 

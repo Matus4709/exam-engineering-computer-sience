@@ -238,10 +238,18 @@ body{
   box-shadow: var(--shadow);
   overflow: hidden;
 }
+.section > summary{
+  list-style: none;
+  cursor: pointer;
+}
+.section > summary::-webkit-details-marker{ display: none; }
 .section__head{
   padding: 14px 14px 10px;
   border-bottom: 1px solid var(--border);
   background: color-mix(in srgb, var(--panel2) 70%, transparent);
+}
+.section:not([open]) .section__head{
+  border-bottom-color: transparent;
 }
 .section__title{
   margin: 0;
