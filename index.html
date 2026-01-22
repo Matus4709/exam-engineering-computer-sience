@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Egzamin inżynierski — pytania i odpowiedzi (Informatyka)</title>
+    <meta
+      name="description"
+      content="Nowoczesna strona z pytaniami i rozwiniętymi odpowiedziami do egzaminu inżynierskiego z informatyki."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">Przejdź do treści</a>
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true">∞</div>
+          <div class="brand__text">
+            <div class="brand__title">Egzamin inżynierski — Informatyka</div>
+            <div class="brand__subtitle">Pytania + rozwinięte odpowiedzi</div>
+          </div>
+        </div>
+
+        <div class="topbar__actions">
+          <label class="search" aria-label="Wyszukaj">
+            <span class="search__icon" aria-hidden="true">⌕</span>
+            <input id="search" class="search__input" type="search" placeholder="Szukaj: Dijkstra, IEEE 754, TLS..." />
+            <button id="clearSearch" class="search__clear" type="button" title="Wyczyść">×</button>
+          </label>
+          <div class="seg">
+            <button id="toggleAll" class="btn btn--ghost" type="button">Rozwiń wszystko</button>
+            <button id="print" class="btn btn--ghost" type="button">Druk / PDF</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Nawigacja">
+        <div class="sidebar__card">
+          <div class="sidebar__title">Spis treści</div>
+          <nav id="toc" class="toc"></nav>
+        </div>
+
+        <div class="sidebar__card sidebar__card--hint">
+          <div class="sidebar__title">Skróty</div>
+          <ul class="hint">
+            <li><b>/</b> — fokus wyszukiwarki</li>
+            <li><b>Esc</b> — wyczyść wyszukiwanie</li>
+            <li><b>Ctrl+P</b> — druk</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main id="content" class="content">
+        <section class="hero">
+          <h1>Pytania do egzaminu inżynierskiego z Informatyki</h1>
+          <p class="hero__lead">
+            Wszystko w jednym miejscu: <b>pytania</b> + <b>rozwinięte odpowiedzi</b>, akordeony, wyszukiwarka i spis treści.
+          </p>
+          <div class="hero__meta">
+            <span class="pill">Akordeony</span>
+            <span class="pill">TOC</span>
+            <span class="pill">Szukaj</span>
+            <span class="pill">Wydruk</span>
+          </div>
+        </section>
+
+        <div id="app" class="app" aria-live="polite"></div>
+
+        <footer class="footer">
+          <div class="footer__inner">
+            <span class="muted">Wygenerowane lokalnie w tym folderze. Możesz to od razu otworzyć w przeglądarce.</span>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Dane (w kilku plikach, żeby było łatwo edytować) -->
+    <script src="./data/section-i.js"></script>
+    <script src="./data/section-ii.js"></script>
+    <script src="./data/section-iii.js"></script>
+    <script src="./data/section-iv.js"></script>
+    <script src="./data/section-v.js"></script>
+    <script src="./data/section-vi.js"></script>
+    <script src="./data/section-vii.js"></script>
+    <script src="./data/section-viii.js"></script>
+    <script src="./data/section-ix.js"></script>
+    <script src="./data/section-x.js"></script>
+    <script src="./data/section-xi.js"></script>
+    <script src="./data/section-xii.js"></script>
+    <script src="./data/section-xiii.js"></script>
+    <script src="./data/section-xiv.js"></script>
+    <script src="./data/section-xv.js"></script>
+    <script src="./data/section-xvi.js"></script>
+    <script src="./data/section-xvii.js"></script>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
